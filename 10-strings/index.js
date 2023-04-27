@@ -24,7 +24,7 @@ console.log(umaString[3]); // Localiza o caractere no índice 3
 
 console.log(umaString[8]); // Caso selecione um índice que não tem no texto, o valor será UNDEFINED
 
-console.log(umaString[-1]); // Undefined
+console.log(umaString[-1]); // Esse method não suporta índices negativos, logo o valor retornado vai ser Undefined
 
 //*-------------------------------------------------------------------------------------------------------------
 console.log(`\n string.charAt( índice ) \n`); //* Localiza o caractere no índice digitado entre parênteses()
@@ -65,7 +65,7 @@ console.log(umaString.lastIndexOf('t', 4)); // Procura de trás pra frente o car
 console.log(umaString.lastIndexOf('o', 3)); // Procura de trás pra frente o caractere "o" começando a partir do índice 3
 
 //?#############################################################################################################
-console.log('\n                         ÍNDICES E REGEX                                                    \n');
+console.log('\n                         MATCH E SEARCH                                                     \n');
 //?#############################################################################################################
 
 //*-------------------------------------------------------------------------------------------------------------
@@ -92,6 +92,20 @@ console.log(texto);
 texto = umaString.search(/Texto/); // Retorna o índice de "Texto", MAS, usando Expressões Regulares
 console.log(texto);
 
+//?#############################################################################################################
+console.log('\n                         STRING METHODS                                                     \n');
+//?#############################################################################################################
+
+//*-------------------------------------------------------------------------------------------------------------
+console.log(`\n string.length \n`); //* Retorna quantos caracteres tem uma string
+//*-------------------------------------------------------------------------------------------------------------
+
+umaString = 'o rato roe';
+//           12345678910
+
+let caracteresString = umaString.length; // "o rato roe" tem 10 caracteres
+console.log(caracteresString);
+
 //*-------------------------------------------------------------------------------------------------------------
 console.log(`\n string.replace('palavra ou caractere', 'palavra ou caractere' | /Expressão Regular/) \n`); //* Substitui uma palavra ou caractere por outra palavra ou caractere
 //*-------------------------------------------------------------------------------------------------------------
@@ -106,20 +120,6 @@ umaString = 'o rato roeu a roupa do rei de roma';
 
 texto = umaString.replace(/r/g, '#'); // Substitui todos os "r" por "#"
 console.log(texto);
-
-//?#############################################################################################################
-console.log('\n                         STRING METHODS                                                     \n');
-//?#############################################################################################################
-
-//*-------------------------------------------------------------------------------------------------------------
-console.log(`\n string.length \n`); //* Retorna quantos caracteres tem uma string
-//*-------------------------------------------------------------------------------------------------------------
-
-umaString = 'o rato roe';
-//           12345678910
-
-let caracteresString = umaString.length; // "o rato roe" tem 10 caracteres
-console.log(caracteresString);
 
 //*-------------------------------------------------------------------------------------------------------------
 console.log(`\n string.slice(indexStart, indexEnd(opcional)) \n`); //* Extrai uma seção de uma string e retorna como uma nova string, sem modificar a string original.
