@@ -25,6 +25,13 @@ num1 = 3.497288;
 resultado = Math.round(num1); // Arredondado para 3
 console.log(resultado);
 
+//# Math.sqrt(x: number): number
+// Retorna a raíz quadrada de um número
+
+console.log(Math.sqrt(25));
+
+console.log(Math.sqrt(9));
+
 //# Math.max(...values: number): number | Math.min(...values: number): number
 //Retorna o maior e menor número respectivamente
 
