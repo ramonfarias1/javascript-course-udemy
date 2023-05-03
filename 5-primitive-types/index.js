@@ -1,4 +1,4 @@
-// String | Number | Boolean | Undefined | Null
+// String | Number | Boolean | Undefined | Null | Bigint | Symbol
 
 const name = 'ramon' // string aspas simples
 
