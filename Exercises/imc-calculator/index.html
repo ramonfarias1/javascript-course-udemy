@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main>
+        <table>
+            <caption>Tabela IMC</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Resultado</th>
+                    <th scope="col">Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Abaixo de 17</td>
+                    <td>Muito abaixo do peso</td>
+                </tr>
+                <tr>
+                    <td>Entre 17 e 18,49</td>
+                    <td>Abaixo do peso</td>
+                </tr>
+                <tr>
+                    <td>Entre 18,50 e 24,99</td>
+                    <td>Peso normal</td>
+                </tr>
+                <tr>
+                    <td>Entre 25 e 29,99</td>
+                    <td>Acima do peso</td>
+                </tr>
+                <tr>
+                    <td>Entre 30 e 34,99</td>
+                    <td>Obesidade I</td>
+                </tr>
+                <tr>
+                    <td>Entre 35 e 39,99</td>
+                    <td>Obesidade II (severa)</td>
+                </tr>
+                <tr>
+                    <td>Acima de 40</td>
+                    <td>Obesidade III (mórbida)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h1>Calcule seu IMC</h1>
+        <form action="" id="form">
+            <label for="input-peso">Peso (Kg):</label>
+            <input type="number" name="input-peso" id="input-peso" step="0.01">
+            <label for="input-altura">Altura (m):</label>
+            <input type="number" name="input-altura" id="input-altura" step="0.01">
+            <input type="submit" value="Calcular">
+        </form>
+        <p id="resultado"></p>
+    </main>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -26,15 +26,23 @@ if (hours >= 6 && hours < 12) {
 
 // Exemplo02:
 
-const num = 10
+const num = 10;
 
 // se (num >=0 && num <=5) for true, faça isso { código }
 // se não, faça isso { código }
 
 if (num >=0 && num <=5) {
     console.log('o número está entre 0 e 5');
+} else if (true) { // Verdadeiro
+    console.log('A análise da estrutura parou aqui pois a expressão foi avaliada como true, o resto da estrutura não será análisada mesmo contendo outras expressões que são verdadeiras.')
+} else if (num >= 6 && num <= 10) { // Verdadeiro
+    console.log('o número está entre 6 e 10');
 } else {
-    console.log('o número não está entre 0 e 5');
+    console.log('o número não está entre nada');
 };
 
-console.log('o número não está entre 0 e 5') // Essa linha de código não está dentro da estrutura condicional, portanto ela será executada no fluxo normal do código.
+if (num >=11 && num <= 20) {
+    console.log('seu número está entre 11 e 20'); // Essa estrutura está fora da estrutura condicional de cima, portanto ela será executada mesmo que alguma expressão na estrutura de cima seja avaliada como true.
+};
+
+console.log('Este código será executado no fluxo normal pois não está dentro da estrutura condicional'); // Essa linha de código não está dentro da estrutura condicional, portanto ela será executada no fluxo normal do código.
