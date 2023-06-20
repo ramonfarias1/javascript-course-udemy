@@ -1,62 +1,63 @@
 function myScope() {
     const form = document.querySelector('#form');
-    form.addEventListener('submit', calcularIMC);
-    function calcularIMC(evento) {
-        evento.preventDefault();
-        const peso = form.querySelector('#input-peso');
-        const altura = form.querySelector('#input-altura');
-        const resultado = document.querySelector('#resultado');
-        if (peso.value === '' || peso.value === '0') {
-            resultado.style.display = 'block';
-            resultado.innerHTML = 'Digite seu peso!';
-            resultado.style.backgroundColor = '#ff9090';
-            resultado.style.color = 'darkred';
-        } else if (altura.value === '' || altura.value === '0') {
-            resultado.style.display = 'block';
-            resultado.innerHTML = 'Digite sua altura!';
-            resultado.style.backgroundColor = '#ff9090';
-            resultado.style.color = 'darkred';
-        } else {
-            const pesoConvertido = Number(peso.value);
-            const alturaConvertida = Number(altura.value);
-            const imc = Number((pesoConvertido / (alturaConvertida ** 2)).toFixed(2));
-            if (imc < 17) {
-                resultado.style.display = 'block';
-                resultado.innerHTML = `Seu IMC é ${imc} (Muito abaixo do peso)`;
-                resultado.style.backgroundColor = 'cadetblue';
-                resultado.style.color = 'black';
-            } else if (imc >= 17 && imc <= 18.49) {
-                resultado.style.display = 'block';
-                resultado.innerHTML = `Seu IMC é ${imc} (Abaixo do peso)`;
-                resultado.style.backgroundColor = 'cadetblue';
-                resultado.style.color = 'black';
-            } else if (imc >= 18.50 && imc <= 24.99) {
-                resultado.style.display = 'block';
-                resultado.innerHTML = `Seu IMC é ${imc} (Peso normal)`;
-                resultado.style.backgroundColor = 'cadetblue';
-                resultado.style.color = 'black';
-            } else if (imc >= 25 && imc <= 29.99) {
-                resultado.style.display = 'block';
-                resultado.innerHTML = `Seu IMC é ${imc} (Acima do peso)`;
-                resultado.style.backgroundColor = 'cadetblue';
-                resultado.style.color = 'black';
-            } else if (imc >= 30 && imc <= 34.99) {
-                resultado.style.display = 'block';
-                resultado.innerHTML = `Seu IMC é ${imc} (Obesidade I)`;
-                resultado.style.backgroundColor = 'cadetblue';
-                resultado.style.color = 'black';
-            } else if (imc >= 35 && imc <= 39.99) {
-                resultado.style.display = 'block';
-                resultado.innerHTML = `Seu IMC é ${imc} (Obesidade II Severa)`;
-                resultado.style.backgroundColor = 'cadetblue';
-                resultado.style.color = 'black';
-            } else if (imc >= 40) {
-                resultado.style.display = 'block';
-                resultado.innerHTML = `Seu IMC é ${imc} (Obesidade III Mórbida)`;
-                resultado.style.backgroundColor = 'cadetblue';
-                resultado.style.color = 'black';
-            };
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const inputPeso = e.target.querySelector('#input-peso');
+        const inputAltura = e.target.querySelector('#input-altura');
+
+        const peso = Number(inputPeso.value);
+        const altura = Number(inputAltura.value);
+
+        if (!peso) {
+            setResultado('Peso Inválido!', false);
+            return;
         };
+        if (!altura) {
+            setResultado('Altura Inválida!', false);
+            return;
+        };
+
+        const imc = getIMC(peso, altura);
+        const situacao = getSituacao(imc);
+        const msg = `Seu IMC é ${imc} (${situacao})`;
+
+        setResultado(msg, true);
+    });
+
+    function getSituacao(imc) {
+        const situacao = ['Muito abaixo do peso', 'Abaixo do peso', 'Peso normal', 'Acima do peso', 'Obesidade I', 'Obesidade II (severa)', 'Obesidade III (mórbida)'];
+
+        if (imc > 39.99) return situacao[6];
+        if (imc > 34.99) return situacao[5];
+        if (imc > 29.99) return situacao[4];
+        if (imc > 24.99) return situacao[3];
+        if (imc > 18.49) return situacao[2];
+        if (imc >= 17) return situacao[1];
+        if (imc < 17) return situacao[0];
+    };
+
+    function getIMC(peso, altura) {
+        const imc = peso / altura ** 2;
+        return Number(imc.toFixed(2));
+    };
+
+    function createParagraph() {
+        const p = document.createElement('p');
+        return p;
+    };
+
+    function setResultado(msg, isValid) {
+        const divResultado = document.querySelector('#resultado');
+        divResultado.innerHTML = '';
+        const p = createParagraph();
+        if (isValid) {
+            p.classList.add('no-error');
+        } else {
+            p.classList.add('error');
+        };
+        p.innerHTML = msg;
+        divResultado.appendChild(p);
     };
 };
 

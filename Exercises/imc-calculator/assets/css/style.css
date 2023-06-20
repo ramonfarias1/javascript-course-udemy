@@ -53,10 +53,14 @@ input[type='Submit'] {
     cursor: pointer;
 }
 
-#resultado {
-    display: none;
-    font-weight: 700;
+.no-error {
+    background-color: #3dff36;
+    padding: 10px;
     text-align: center;
-    background-color: cadetblue;
-    padding: 5px;
+}
+
+.error {
+    background-color: #ff8e8e;
+    padding: 10px;
+    text-align: center;
 }
