@@ -1,64 +1,62 @@
 function myScope() {
-    const form = document.querySelector('#form');
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
 
-        const inputPeso = e.target.querySelector('#input-peso');
-        const inputAltura = e.target.querySelector('#input-altura');
+    const form = document.querySelector('#form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const inputPeso = event.target.querySelector('#input-peso');
+        const inputAltura = event.target.querySelector('#input-altura');
 
         const peso = Number(inputPeso.value);
         const altura = Number(inputAltura.value);
 
-        if (!peso) {
-            setResultado('Peso Inválido!', false);
-            return;
-        };
-        if (!altura) {
-            setResultado('Altura Inválida!', false);
-            return;
+        if (!peso) return showResult('Peso Inválido!', false);
+        if (!altura) return showResult('Altura Inválida!', false);
+
+        const imc = calculateIMC(peso, altura);
+        function calculateIMC(peso, altura) {
+            return peso / altura ** 2;
         };
 
-        const imc = getIMC(peso, altura);
-        const situacao = getSituacao(imc);
-        const msg = `Seu IMC é ${imc} (${situacao})`;
+        const situation = situationIMC(imc);
+        function situationIMC(imc) {
+            const situation = ['Muito abaixo do peso', 'Abaixo do peso', 'Peso normal', 'Acima do peso', 'Obesidade I', 'Obesidade II (severa)', 'Obesidade III (mórbida)'];
 
-        setResultado(msg, true);
+            if (imc > 39.99) return situation[6];
+            if (imc > 34.99) return situation[5];
+            if (imc > 29.99) return situation[4];
+            if (imc > 24.99) return situation[3];
+            if (imc > 18.49) return situation[2];
+            if (imc >= 17) return situation[1];
+            if (imc < 17) return situation[0];
+        };
+
+        const result = `Seu IMC é ${imc.toFixed(2)} (${situation})`;
+
+        showResult(result, true);
+
+        function showResult(result, isValid) {
+            const divResult = document.querySelector('#result');
+            divResult.innerHTML = '';
+
+            const p = createParagraph();
+            function createParagraph() {
+                const p = document.createElement('p');
+
+                if (isValid) {
+                    p.classList.add('no-error');
+                    return p;
+                } else {
+                    p.classList.add('error');
+                    return p;
+                };
+            };
+
+            p.innerHTML = result;
+            divResult.appendChild(p);
+        };
     });
-
-    function getSituacao(imc) {
-        const situacao = ['Muito abaixo do peso', 'Abaixo do peso', 'Peso normal', 'Acima do peso', 'Obesidade I', 'Obesidade II (severa)', 'Obesidade III (mórbida)'];
-
-        if (imc > 39.99) return situacao[6];
-        if (imc > 34.99) return situacao[5];
-        if (imc > 29.99) return situacao[4];
-        if (imc > 24.99) return situacao[3];
-        if (imc > 18.49) return situacao[2];
-        if (imc >= 17) return situacao[1];
-        if (imc < 17) return situacao[0];
-    };
-
-    function getIMC(peso, altura) {
-        const imc = peso / altura ** 2;
-        return Number(imc.toFixed(2));
-    };
-
-    function createParagraph() {
-        const p = document.createElement('p');
-        return p;
-    };
-
-    function setResultado(msg, isValid) {
-        const divResultado = document.querySelector('#resultado');
-        divResultado.innerHTML = '';
-        const p = createParagraph();
-        if (isValid) {
-            p.classList.add('no-error');
-        } else {
-            p.classList.add('error');
-        };
-        p.innerHTML = msg;
-        divResultado.appendChild(p);
-    };
 };
 
-myScope();
+myScope()
