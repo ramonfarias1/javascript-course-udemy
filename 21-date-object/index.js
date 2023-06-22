@@ -31,7 +31,7 @@ console.log(data2.toString());
 
 //! Notas:
 //! O mês no JavaScript começa no 0, exemplo: Janeiro 0 - Dezembro 11
-//! O limite de ms é 999, assim como o limite pra segundos e minutos é 60, e para a hora 24, então se colocar 1000ms o JavaScript adicionará mais 1 segundo, se colocar 60seg o JavaScript adicionará mais 1 min e assim por diante.
+//! O limite de ms é 999, assim como o limite pra segundos e minutos é 60, e para a hora 23, então se colocar 1000ms o JavaScript adicionará mais 1 segundo, se colocar 60seg o JavaScript adicionará mais 1 min e assim por diante.
 
 const data3 = new Date(2018, 3, 7, 18, 5,); // Pode-se omitir os parâmetros, fazendo com que eles tenham seus valores inicias.
 console.log(data3.toString());
