@@ -54,3 +54,32 @@ try {
 };
 
 // Explicando o exemplo acima: o javascript tenta(try) abrir um arquivo e consegue, depois começa a manipular o arquivo, mas da um erro no meio da manipulação e não segue para a instrução de fechar o arquivo, o erro seguirá para o bloco (catch) mas o arquivo ainda ficará aberto, isso se não tiver o bloco (finnaly). Se tiver o bloco (finnaly) pode-se da a instrução de fechar o arquivo, e essa instrução sempre vai ser executada, pois o (finnaly) sempre é executado independente do resultado do (try) e (catch).
+
+//# Exemplo com Date:
+
+function retornaHora(data) {
+  if (data && !(data instanceof Date)) {
+    throw new TypeError('Não é uma instância de Date');
+  };
+
+  if (!data) {
+    data = new Date();
+  };
+
+  return data.toLocaleTimeString('pt-BR', {
+    hour12: true,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+};
+
+try {
+  const data = new Date('01-01-1970 15:07:08');
+  console.log(retornaHora());
+} catch(err) {
+  // Tratar erro
+  console.log(err)
+} finally {
+  console.log('tenha um bom dia!');
+};
