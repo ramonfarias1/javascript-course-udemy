@@ -47,7 +47,7 @@ addButton.addEventListener('click', function() {
 
 document.addEventListener('keypress', function (e) {
     if (e.target === textField && e.key === 'Enter') {
-        addTask();
+        addTask(textField.value);
     };
 });
 
