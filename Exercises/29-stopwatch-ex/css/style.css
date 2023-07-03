@@ -21,10 +21,8 @@ body {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    aspect-ratio: 1/1;
+    width: 40%;
     border: 2px solid white;
     border-radius: 50%;
     color: white;
