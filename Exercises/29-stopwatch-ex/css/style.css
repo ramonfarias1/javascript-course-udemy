@@ -13,19 +13,14 @@
 
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #121212;
-}
-
-main {
-    aspect-ratio: 1/1;
-    width: 40%;
-    border: 2px solid white;
-    border-radius: 50%;
-    color: white;
+    background-image: url(../img/test.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 span.material-icons {
@@ -44,4 +39,10 @@ span.material-icons:hover {
 
 span.hidden {
     display: none;
+}
+
+h1 {
+    margin-top: 170px;
+    background-color: red;
+    width: 448px;
 }
