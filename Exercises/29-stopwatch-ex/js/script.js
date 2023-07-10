@@ -19,8 +19,8 @@ function timer() {
         return `${zeroAEsquerda(hour)}:${zeroAEsquerda(min)}:${zeroAEsquerda(seg)}`;
     };
 
-    const startButton = document.querySelector('img.start-button');
-    const pauseButton = document.querySelector('img.pause-button');
+    const startButton = document.querySelector('span.start-button');
+    const pauseButton = document.querySelector('span.pause-button');
     const resetButton = document.querySelector('span.reset-button');
     const tagH1 = document.querySelector('h1');
     const title = document.querySelector('.title');
