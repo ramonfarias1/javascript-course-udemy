@@ -82,7 +82,7 @@ console.log(pessoa2.nomeCompleto());
 //# Getters e Setters
 // Getters e setters permitem que você defina Acessadores ás propriedades de um object.
 
-// Getters são usados para ler valores de propriedades e não permiti alterar os mesmos, enquanto setters são usados para gravar valores em propriedades.
+// Getters são usados para ler valores de propriedades, enquanto setters são usados para gravar valores em propriedades.
 
 /* Por que usar Getters e Setters?
  - Fornece uma sintaxe mais simples.
@@ -98,12 +98,18 @@ function criaPessoa(nome, sobrenome, altura, peso) {
         sobrenome,
         altura,
         peso,
-
+        
         get nomeCompleto() {
             return nome + ' ' + sobrenome;
         },
+        
+        set nomeCompleto(valor) {
+            valorSplitted = valor.split(' ');
+            nome = valorSplitted.shift();
+            sobrenome = valorSplitted.join(' ');
+        },
 
-        calcIMC() {
+        get calcIMC() {
             const imc = peso / (altura ** 2);
             return imc.toFixed(2);
         },
@@ -112,6 +118,8 @@ function criaPessoa(nome, sobrenome, altura, peso) {
 
 const pessoa01 = criaPessoa('Gael', 'Slaveknight', 2.0, 95);
 const pessoa02 = criaPessoa('Artorias', 'do Abismo', 2.5, 82);
+
+pessoa01.nomeCompleto = 'Ainz Ooal Gown';
 
 console.log(pessoa01.nomeCompleto, pessoa01.calcIMC);
 console.log(pessoa02.nomeCompleto, pessoa02.calcIMC);
