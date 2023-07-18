@@ -14,27 +14,25 @@ body {
 }
 
 div.calculator {
-    background-color: red;
-    width: 215px;
+    max-width: 215px;
+    min-width: 215px;
 }
 
-div.result {
+input.result-field {
+    width: 100%;
     font-size: 1.5em;
     text-align: right;
-    background-color: gray;
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
-div.buttons {
-    background-color: yellow;
+div.input-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
 
-input {
+div.input-buttons input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,4 +41,9 @@ input {
     font-size: 1.5em;
     background-color: gray;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+div.input-buttons input:hover {
+    background-color: rgba(128, 128, 128, 0.5);
 }
