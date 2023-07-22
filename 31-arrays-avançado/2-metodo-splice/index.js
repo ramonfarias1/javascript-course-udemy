@@ -60,6 +60,6 @@ const nomes = ['sergio', 'gordao', 'foguetes', 'renato'];
 
 // Substituindo o push();
 
-nomes.splice(nomes.length, 0, 'igor');
+nomes.splice(nomes.length, 0, 'igor'); // Pode-se usar MAX_VALUE também
 
 console.log(nomes);
