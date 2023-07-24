@@ -11,8 +11,12 @@ body {
 }
 
 div.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    height: 629px;
+    height: 100%;
     background-image: url(../img/test.gif);
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,12 +25,21 @@ div.img {
     background-color: red;
 }
 
+/* @media screen and (orientation: portrait) {
+    div.img {
+        height: 100vh;
+    }
+
+    div.img h1 {
+        font-size: 6.5vh;
+        margin-top: 30vh;
+    }
+} */
+
 h1 {
-    position: relative;
-    top: 190px;
-    text-align: center;
+    margin-top: 30vh;
     font-family: 'Press Start 2P', cursive;
-    font-size: 2.5em;
+    font-size: 6.5vh;
     color: #39fed6;
 }
 

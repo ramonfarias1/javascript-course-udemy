@@ -165,3 +165,9 @@ console.log(`\n string.toUpperCase() | string.toLowerCase() \n`); //* Coloca tod
 console.log(umaString.toUpperCase()); // MAÍUSCULAS
 
 console.log(umaString.toLowerCase()); // mínusculas
+
+//# Verificar se uma string termina com uma letra que queremos string.endsWith('a')
+
+const nome = 'Rosana';
+
+console.log(nome.endsWith('a'));
