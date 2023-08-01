@@ -1,5 +1,5 @@
 // Sintaxe:
-//? array.reduce(function(total, currentValue, currentIndex, array), initialValue);
+//? array.reduce(function(acumulador, Valor, Index, array), initialValue);
 
 //* Exemplo01:
 // Some todos os numeros (reduce)
