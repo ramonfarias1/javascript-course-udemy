@@ -91,30 +91,42 @@ Se o resultado aqui por maior que 9, então o digito será 0
 //     return console.log('Resultado: CPF Inválido!');
 // }());
 
-function mascara(i) {
+// function mascara(i) {
 
-    var v = i.value;
+//     var v = i.value;
 
-    if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
-        i.value = v.substring(0, v.length - 1);
-        return;
-    }
+//     if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
+//         i.value = v.substring(0, v.length - 1);
+//         return;
+//     }
 
-    i.setAttribute("maxlength", "14");
-    if (v.length == 3 || v.length == 7) i.value += ".";
-    if (v.length == 11) i.value += "-";
-
-}
+//     i.setAttribute("maxlength", "14");
+//     if (v.length == 3 || v.length == 7) i.value += ".";
+//     if (v.length == 11) i.value += "-";
+// }
 
 class ValidaCpf {
-    constructor(inputCpfValue) {
-        console.log(inputCpfValue);
+    constructor(cpfInputValue) {
+        Object.defineProperty(this, 'cpf', {
+            enumerable: true,
+            configurable: false,
+
+            get: function() {
+                return cpfInputValue.replaceAll('.', '').replace('-', '');
+            },
+        });
+    };
+
+    iniciarValidacao() {
+        if (this.cpf.length !== 11 || isNaN(this.cpf)) return 'false';
+        return this.cpf;
+        
     };
 };
 
-const botaoConsultar = document.querySelector('#botao-consultar');
-const inputCpf = document.querySelector('#input-cpf');
-
-botaoConsultar.addEventListener('click', () => {
-    const cpf = new ValidaCpf(inputCpf.value);
+const botaoValidar = document.querySelector('#botao-validar');
+botaoValidar.addEventListener('click', () => {
+    const cpfInput = document.querySelector('#cpf-input');
+    const cpf = new ValidaCpf(cpfInput.value);
+    console.log(cpf.iniciarValidacao());
 });
