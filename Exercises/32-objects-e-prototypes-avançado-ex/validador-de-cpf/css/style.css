@@ -9,6 +9,21 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+}
+
+p#result {
+    display: none;
+    padding: 20px 10px;
+}
+
+p.invalido {
+    background-color: rgb(255, 107, 107);
+}
+
+p.valido {
+    background-color: rgb(104, 218, 104);
 }

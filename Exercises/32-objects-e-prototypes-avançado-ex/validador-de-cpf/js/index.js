@@ -91,19 +91,19 @@ Se o resultado aqui por maior que 9, então o digito será 0
 //     return console.log('Resultado: CPF Inválido!');
 // }());
 
-// function mascara(i) {
+function mascara(i) {
 
-//     var v = i.value;
+    var v = i.value;
 
-//     if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
-//         i.value = v.substring(0, v.length - 1);
-//         return;
-//     }
+    if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
+        i.value = v.substring(0, v.length - 1);
+        return;
+    }
 
-//     i.setAttribute("maxlength", "14");
-//     if (v.length == 3 || v.length == 7) i.value += ".";
-//     if (v.length == 11) i.value += "-";
-// }
+    i.setAttribute("maxlength", "14");
+    if (v.length == 3 || v.length == 7) i.value += ".";
+    if (v.length == 11) i.value += "-";
+}
 
 class ValidaCpf {
     constructor(cpfInputValue) {
@@ -111,22 +111,53 @@ class ValidaCpf {
             enumerable: true,
             configurable: false,
 
-            get: function() {
+            get: function () {
                 return cpfInputValue.replaceAll('.', '').replace('-', '');
-            },
+            }
         });
     };
 
     iniciarValidacao() {
-        if (this.cpf.length !== 11 || isNaN(this.cpf)) return 'false';
-        return this.cpf;
-        
+        if (this.cpf.length !== 11 || isNaN(this.cpf)) return false;
+        if (this.cpf === this.cpf[0].repeat(this.cpf.length)) return false;
+
+        const cpfValidado = () => {
+            const cpfArray = this.cpf.slice(0, -2).split('');
+
+            for (let i = 0; i < 2; i++) {
+                let contador = cpfArray.length + 1;
+                
+                const totalMult = cpfArray.reduce((acumulador, valor) => {
+                    acumulador += Number(valor) * contador;
+                    contador--;
+                    return acumulador;
+                }, 0);
+
+                const digito = 11 - (totalMult % 11);
+                digito < 10 ? cpfArray.push(digito) : cpfArray.push(0);
+            };
+
+            return cpfArray.join('');
+        };
+
+        return cpfValidado() === this.cpf ? true : false;
     };
 };
 
 const botaoValidar = document.querySelector('#botao-validar');
 botaoValidar.addEventListener('click', () => {
     const cpfInput = document.querySelector('#cpf-input');
+    const pResult = document.querySelector('#result');
+
     const cpf = new ValidaCpf(cpfInput.value);
-    console.log(cpf.iniciarValidacao());
+
+    if (cpf.iniciarValidacao()) {
+        pResult.innerText = 'CPF Válido!';
+        pResult.setAttribute('class', 'valido');
+        pResult.style.display = 'block';
+    } else {
+        pResult.innerText = 'CPF Inválido!';
+        pResult.setAttribute('class', 'invalido');
+        pResult.style.display = 'block';
+    };
 });
