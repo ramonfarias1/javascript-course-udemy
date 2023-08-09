@@ -48,6 +48,31 @@ cell1.ligar();
 cell1.ligar();
 cell1.desligar();
 
-class Laptop extends Celular {};
+class Laptop extends Celular {
+    ligar() {
+        if (this.ligado) {
+            console.log(`O ${this.nome} ${this.marca} ${this.modelo} já está ligado!`);
+            return;
+        };
 
-const laptop1 = new Laptop('')
+        this.ligado = true;
+        console.log(`O ${this.nome} ${this.marca} ${this.modelo} foi ligado!`);
+    };
+
+    desligar() {
+        if (!this.ligado) {
+            console.log(`O ${this.nome} ${this.marca} ${this.modelo} já está desligado!`);
+            return;
+        };
+
+        this.ligado = false;
+        console.log(`O ${this.nome} ${this.marca} ${this.modelo} foi desligado!`);
+    };
+};
+
+const laptop1 = new Laptop('laptop', 'pratiado', 'lenovo', 'ideapad 3');
+console.log(laptop1);
+laptop1.desligar();
+laptop1.ligar();
+laptop1.ligar();
+laptop1.desligar();
