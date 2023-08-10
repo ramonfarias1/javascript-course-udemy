@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: max-content;
+    margin: 0 auto;
+    background-color: rgb(249, 249, 249);
+}
+
+ul {
+    list-style-position: inside;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form div p {
+    display: none;
+    background-color: rgb(255, 98, 98);
+}
