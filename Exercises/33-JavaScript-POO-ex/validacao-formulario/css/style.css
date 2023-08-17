@@ -6,14 +6,20 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background-color: rgb(0, 0, 19);
+}
+
 main {
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 20px;
+    margin-top: 20px;
     max-width: max-content;
     margin: 0 auto;
-    background-color: rgb(249, 249, 249);
+    background-color: white;
+    border-radius: 10px;
 }
 
 ul {
@@ -23,7 +29,7 @@ ul {
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 form div {
@@ -31,7 +37,15 @@ form div {
     flex-direction: column;
 }
 
-form div p {
+div.erros {
     display: none;
-    background-color: rgb(255, 98, 98);
+}
+
+div.erros p {
+    font-size: 0.7em;
+    color: red;
+}
+
+div.erros p~p {
+    margin-top: 10px;
 }

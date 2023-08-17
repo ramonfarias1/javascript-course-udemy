@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validação de Formulário</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <main>
         <h1>Formulário de Cadastro</h1>
@@ -19,36 +21,37 @@
             <div>
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome">
-                <p id="erro-nome"></p>
             </div>
+            <div id="erros-nome" class="erros"></div>
             <div>
                 <label for="sobrenome">Sobrenome:</label>
                 <input type="text" name="sobrenome" id="sobrenome">
-                <p id="erro-sobrenome"></p>
             </div>
+            <div id="erros-sobrenome" class="erros"></div>
             <div>
                 <label for="cpf">CPF:</label>
                 <input type="text" name="cpf" id="cpf">
-                <p id="erro-cpf"></p>
             </div>
+            <div id="erros-cpf" class="erros"></div>
             <div>
                 <label for="usuario">Usuário:</label>
                 <input type="text" name="usuario" id="usuario">
-                <p id="erro-usuario"></p>
             </div>
+            <div id="erros-usuario" class="erros"></div>
             <div>
                 <label for="senha">Senha:</label>
                 <input type="text" name="senha" id="senha">
-                <p id="erro-senha"></p>
             </div>
+            <div id="erros-senha" class="erros"></div>
             <div>
                 <label for="repetir-senha">Repetir Senha:</label>
                 <input type="text" name="repetir-senha" id="repetir-senha">
-                <p id="erro-repetir-senha"></p>
             </div>
+            <div id="erros-repetir-senha" class="erros"></div>
             <input type="button" value="Enviar" id="enviar">
         </form>
     </main>
     <script src="js/script.js"></script>
 </body>
+
 </html>
