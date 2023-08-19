@@ -9,19 +9,13 @@ class Form {
     };
 
     validaForm() {
-        this.validaNome(ValidaNomeCallBack);
+        const chamaValidaSobrenome = () => this.validaSobrenome(chamaValidaCpf); // Fiz com callback apenas para práticar
+        const chamaValidaCpf = () => this.validaCpf();
 
-        function ValidaNomeCallBack() {
-            this.validaSobrenome(validaSobrenomeCallBack);
-        };
-
-        function validaSobrenomeCallBack() {
-            this.validaCpf(validaCpfCallBack);
-        };
-
+        this.validaNome(chamaValidaSobrenome);
     };
 
-    validaNome(callback) {
+    validaNome(chamaValidaSobrenome) {
         const divErrosNome = document.querySelector('div#erros-nome');
         divErrosNome.innerHTML = '';
         divErrosNome.style.display = 'none';
@@ -29,18 +23,19 @@ class Form {
         if (!this.inputNome.value) {
             divErrosNome.innerHTML += '<p>O campo "nome" é obrigatório!</p>';
             divErrosNome.style.display = 'block';
-            if (callback) callback();
+            chamaValidaSobrenome();
+            return;
         };
 
-        if (!isNaN(this.inputNome.value)) {
+        if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$\s^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$/.test(this.inputNome.value)) {
             divErrosNome.innerHTML += '<p>Nome Inválido!</p>';
             divErrosNome.style.display = 'block';
         };
 
-        if (callback) callback();
+        chamaValidaSobrenome();
     };
 
-    validaSobrenome(callback) {
+    validaSobrenome(chamaValidaCpf) {
         const divErrosSobrenome = document.querySelector('div#erros-sobrenome');
         divErrosSobrenome.innerHTML = '';
         divErrosSobrenome.style.display = 'none';
@@ -48,7 +43,8 @@ class Form {
         if (!this.inputSobrenome.value) {
             divErrosSobrenome.innerHTML += '<p>O campo "Sobrenome" é obrigatório!</p>';
             divErrosSobrenome.style.display = 'block';
-            if (callback) callback();
+            chamaValidaCpf();
+            return;
         };
 
         if (!isNaN(this.inputNome.value)) {
@@ -56,11 +52,11 @@ class Form {
             divErrosSobrenome.style.display = 'block';
         };
         
-        if (callback) callback();
+        chamaValidaCpf();
     };
 
-    validaCpf(callback) {
-        console.log('test');
+    validaCpf() {
+        console.log('chegou aqui');
     };
 
 };

@@ -8,31 +8,19 @@
 
 //* Exemplo:
 
-function random(max = 3000, min = 1000) {
-    const num = Math.random() * (max - min) + min;
-    return Math.round(num);
-};
-
 function f1(callback) {
-    setTimeout(function() {
-        console.log('f1');
-        if (callback) callback();
-    }, random());
+    console.log('f1');
+    if (callback) callback();
 };
 
 function f2(callback) {
-    setTimeout(function() {
-        console.log('f2');
-        if (callback) callback();
-    }, random());
+    console.log('f2');
+    if (callback) callback();
 };
 
 function f3(callback) {
-    setTimeout(function() {
-        console.log('f3');
-        if (callback) callback();
-    }, random());
-    
+    console.log('f3');
+    if (callback) callback();
 };
 
 f1(f1callback);
