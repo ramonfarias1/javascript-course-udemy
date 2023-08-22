@@ -11,46 +11,37 @@
 <body>
     <main>
         <h1>Formulário de Cadastro</h1>
+
         <ul>
             <li>Nenhum campo pode estar vazio</li>
             <li>Usuário deve conter apenas letras e/ou números</li>
             <li>Usuário deve ter entre 3 a 12 caracteres</li>
             <li>Senha deve conter entre 6 a 12 caracteres</li>
         </ul>
-        <form action="" method="post">
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome">
-            </div>
-            <div id="erros-nome" class="erros"></div>
-            <div>
-                <label for="sobrenome">Sobrenome:</label>
-                <input type="text" name="sobrenome" id="sobrenome">
-            </div>
-            <div id="erros-sobrenome" class="erros"></div>
-            <div>
-                <label for="cpf">CPF:</label>
-                <input type="text" name="cpf" id="cpf">
-            </div>
-            <div id="erros-cpf" class="erros"></div>
-            <div>
-                <label for="usuario">Usuário:</label>
-                <input type="text" name="usuario" id="usuario">
-            </div>
-            <div id="erros-usuario" class="erros"></div>
-            <div>
-                <label for="senha">Senha:</label>
-                <input type="text" name="senha" id="senha">
-            </div>
-            <div id="erros-senha" class="erros"></div>
-            <div>
-                <label for="repetir-senha">Repetir Senha:</label>
-                <input type="text" name="repetir-senha" id="repetir-senha">
-            </div>
-            <div id="erros-repetir-senha" class="erros"></div>
-            <input type="button" value="Enviar" id="enviar">
+
+        <form action="/" method="post" class="form">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" class="data-field">
+
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" name="sobrenome" id="sobrenome" class="data-field">
+
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" id="cpf" class="data-field">
+
+            <label for="usuario">Usuário:</label>
+            <input type="text" name="usuario" id="usuario" class="data-field">
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" class="data-field">
+
+            <label for="repetir-senha">Repetir Senha:</label>
+            <input type="password" name="repetirSenha" id="repetir-senha" class="data-field">
+
+            <input type="submit" value="Enviar">
         </form>
     </main>
+    <script src="js/validCPF.js"></script>
     <script src="js/script.js"></script>
 </body>
 
