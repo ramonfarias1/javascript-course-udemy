@@ -33,11 +33,11 @@ form {
     flex-direction: column;
 }
 
-form input.data-field {
+form .validate {
     margin-bottom: 10px;
 }
 
-form p.error-text {
+form p.error {
     font-size: 0.6em;
     color: red;
     margin-bottom: 10px;
