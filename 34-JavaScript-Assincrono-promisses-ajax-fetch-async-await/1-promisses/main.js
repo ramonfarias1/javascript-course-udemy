@@ -56,40 +56,69 @@ console.log(isValidValue);
 // A sintaxe do método "then()" é:
 //? promiseObject.then(onFulfilled, onRejected);
 
+//# Método catch()
+// O método é catch() usado com o callback() quando a promessa é rejeitada ou se ocorrer um erro.
 
-// function randomTime(max, min) {
-//     max *= 1000;
-//     min *= 1000;
-//     return Math.round(Math.random() * (max - min) + min);
-// };
+//# Método finally()
+// Você também pode usar o método finally() com promessas. O método é executado quando a promessa é resolvida com êxito ou rejeitada.
 
-// function waitASecond(msg, time) {
-//     return new Promise((resolve, reject) => {
-//         if (typeof msg !== 'string') reject(new Error('BAD VALUE'));
+function randomTime(max, min) {
+    max *= 1000;
+    min *= 1000;
+    return Math.round(Math.random() * (max - min) + min);
+};
 
-//         setTimeout(() => {
-//             resolve(msg);
-//         }, time);
-//     });
-// };
+function waitASecond(msg, time) {
+    return new Promise((resolve, reject) => {
+        if (typeof msg !== 'string') reject(new Error('BAD VALUE'));
 
-// waitASecond('Connecting to the data base...', randomTime(1, 3))
-// .then(answer => {
-//     console.log(answer);
-//     return waitASecond('fetching the data...', randomTime(1, 3));
-// })
-// .then(answer => {
-//     console.log(answer);
-//     return waitASecond(666, randomTime(1, 3));
-// })
-// .then(answer => {
-//     console.log(answer);
-// })
-// .then(() => {
-//     console.log('Displaying the data on the screen...');
-// })
-// .catch((error) => {
-//     console.log(error);
-// });
+        setTimeout(() => {
+            resolve(msg);
+        }, time);
+    });
+};
 
-// console.log('I will be executed before any promise');
+waitASecond('Connecting to the data base...', randomTime(1, 3))
+.then(answer => {
+    console.log(answer);
+    return waitASecond('fetching the data...', randomTime(1, 3));
+})
+.then(answer => {
+    console.log(answer);
+    return waitASecond(666, randomTime(1, 3));
+})
+.then(answer => {
+    console.log(answer);
+})
+.then(() => {
+    console.log('Displaying the data on the screen...');
+})
+.catch((error) => {
+    console.log(error);
+})
+.finally( () => {
+    console.log('Parando programa...');
+});
+
+console.log('I will be executed before any promise');
+
+// No programa acima, o método then() é usado para encadear as funções para a promessa. O método then() é chamado quando a promessa é resolvida com êxito. Você pode encadear vários métodos com a promessa.then().
+
+// No programa acima, a promessa é rejeitada. E o método catch() é usado com a promessa de lidar com o erro.
+
+//# Promises VS Callback Functions
+/*
+As promessas são semelhantes às funções de retorno de chamada no sentido de que ambas podem ser usadas para lidar com tarefas assíncronas.
+
+As funções de retorno de chamada JavaScript também podem ser usadas para executar tarefas síncronas.
+
+Suas diferenças podem ser resumidas nos seguintes pontos:
+
+ - Promessa JavaScript:
+A sintaxe é fácil de ler e fácil de ler.
+O tratamento de erros é mais fácil de gerenciar.
+
+ - Retorno de chamada JavaScript:
+A sintaxe é difícil de entender.
+O tratamento de erros pode ser difícil de gerenciar.
+*/
