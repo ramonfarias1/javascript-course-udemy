@@ -76,7 +76,7 @@
 // Esse exemplo de default é muito utilizado
 
 //# Exportação Padrão de uma variável
-// Para exportar uma variável como padrão tem que usar o método de chaves
+// Para exportar uma variável como padrão tem que usar a exportação em bloco
 
 const nome = 'kaka';
 const sobrenome = 'brasil';
@@ -93,7 +93,7 @@ class Pessoa {
     };
 };
 
-export { nome as default, sobrenome, idade, soma, Pessoa }
+export { nome as default, sobrenome, idade, soma, Pessoa } // Exportação em bloco
 
 // Também podemos exportar functions anônimas como default:
 

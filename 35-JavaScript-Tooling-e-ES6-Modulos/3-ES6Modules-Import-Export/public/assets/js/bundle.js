@@ -13,7 +13,7 @@ var __webpack_exports__ = {};
 //? import message from "./message.js";
 //? </script>
 
-//# Importação
+//# Importando de um módulo
 
 //? import { nome, sobrenome, idade, soma, Pessoa } from './modulo1.js';
 // "idade" não será importada pois a mesma não foi exportada, ocorrerá um erro mostrando isso.
@@ -24,7 +24,9 @@ var __webpack_exports__ = {};
 //? const p1 = new Pessoa('test', 'test');
 //? console.log(p1);
 
-//? import { nome as nome2, sobrenome as sobrenome2, idade, soma } from './modulo1.js';
+//# Renomeando importações
+
+//? import { nome as nome2, sobrenome as sobrenome2, idade, soma, Pessoa } from './modulo1.js';
 
 //? const nome = 'bojji';
 //? const sobrenome = 'king';
@@ -32,39 +34,53 @@ var __webpack_exports__ = {};
 //? console.log(nome, sobrenome, nome2, sobrenome2, idade);
 //? console.log(soma(5, 3));
 
-//? import { nome2, sobrenome2, idade, soma} from './modulo1.js';
-
-//? const nome = 'bojji';
-//? const sobrenome = 'king';
-
-//? console.log(nome, sobrenome, nome2, sobrenome2, idade);
-//? console.log(soma(5, 3));
-
-//? import { nome, sobrenome, idade, soma, Pessoa as OutraCoisa } from './modulo1.js';
-
-//? console.log(nome, sobrenome, idade);
-//? console.log(soma(5,3));
-
-//? const p1 = new OutraCoisa('Kaua', 'Farias');
+//? const p1 = new Pessoa('test', 'test');
 //? console.log(p1);
+
+//# Importando módulos já renomeados na Exportação
+
+//? import { nome2, sobrenome2, idade2, soma2, Pessoa2} from './modulo1.js';
+
+//? const nome = 'bojji';
+//? const sobrenome = 'king';
+
+//? console.log(nome, sobrenome, nome2, sobrenome2, idade2);
+//? console.log(soma2(5, 3));
+
+//? const p1 = new Pessoa2('test', 'test');
+//? console.log(p1);
+
+//# Importando tudo de uma vez
+// Utilize o *(asterisco) para importar de uma vez todos os módulos que foram exportados
+
+// O resultado será um object contendo todos os módulos importados
 
 //? import * as meuModulo from './modulo1.js';
 
 //? console.log(meuModulo);
 
-//? import soma from './modulo1.js';
+//# Importando um módulo Default
+// Não é necessário usar chaves{} para importar um módulo default
 
-//? console.log(soma(5,3));
+//? import Pessoa from './modulo1.js';
 
-//? import multiplica, {nome, sobrenome, idade, soma} from './modulo1.js';
+//? const p1 = new Pessoa('test', 'test');
+//? console.log(p1);
 
-//? console.log(multiplica(2, 2));
+//# Importando um módulo default junto de outros módulos
+
+//? import Pessoa, {nome, sobrenome, idade, soma} from './modulo1.js';
+
 //? console.log(nome, sobrenome, idade, soma(2, 2));
 
-// import Pessoa from './modulo1.js';
+//? const p1 = new Pessoa('test', 'test');
+//? console.log(p1);
 
-// const p1 = new Pessoa('iago', 'martins');
-// console.log(p1);
+//# Benefícios de usar Módulos
+
+// A base de código é mais fácil de manter porque código diferente com funcionalidades diferentes estão em arquivos diferentes.
+
+// Torna o código reutilizável. Você pode definir um módulo e usá-lo inúmeras vezes de acordo com suas necessidades.
 /******/ })()
 ;
 //# sourceMappingURL=bundle.js.map
