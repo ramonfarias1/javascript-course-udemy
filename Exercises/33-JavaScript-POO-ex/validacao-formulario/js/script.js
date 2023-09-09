@@ -39,9 +39,9 @@ class ValidateForm {
     };
 
     validateCpf(cpfInput) {
-        const validateCpf = new ValidaCpf(cpfInput.value);
+        const validateCpf = new ValidateCPF(cpfInput.value);
 
-        if (!validateCpf.iniciarValidacao()) {
+        if (!validateCpf.startValidation()) {
             this.returnsError(cpfInput, 'CPF Inválido!');
             return false;
         };

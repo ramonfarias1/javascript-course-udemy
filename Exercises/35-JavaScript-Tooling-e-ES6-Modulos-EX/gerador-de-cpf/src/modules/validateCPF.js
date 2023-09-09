@@ -1,4 +1,4 @@
-class ValidateCPF {
+export default class ValidateCPF {
     constructor(cpfInputValue) {
         Object.defineProperty(this, 'cpf', {
             enumerable: true,

@@ -1,5 +1,7 @@
 // npm i --save-dev @babel/core @babel/cli @babel/preset-env babel-loader webpack webpack-cli
 
+// npm i --save-dev style-loader css-loader
+
 // npm i regenerator-runtime core-js
 
 const nome = 'test';
