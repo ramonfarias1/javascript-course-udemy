@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+
+        <div>
+            <label for="amountChar">Amount of Characters:</label>
+            <input type="range" name="amountChar" id="amountChar" class="amountChar" min="6" max="50" value="6" step="1">
+        </div>
+
+        <div>
+            <label for="numbers">Numbers:</label>
+            <input type="checkbox" name="numbers" id="numbers" class="numbers" checked>
+        </div>
+
+        <div>
+            <label for="symbols">Symbols:</label>
+            <input type="checkbox" name="symbols" id="symbols" class="symbols" checked>
+        </div>
+
+        <div>
+            <label for="ucLetters">Uppercase Letters:</label>
+            <input type="checkbox" name="ucLetters" id="ucLetters" class="ucLetters" checked>
+        </div>
+
+        <div>
+            <label for="lcLetters">Lowercase Letters:</label>
+            <input type="checkbox" name="lcLetters" id="lcLetters" class="lcLetters" checked>
+        </div>
+
+        <input type="button" value="Generate" class="generate">
+
+        <span class="generatedPassword"></span>
+    </div>
+
+    <script src="assets/js/bundle.js"></script>
+</body>
+
+</html>
