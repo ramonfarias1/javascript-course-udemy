@@ -12,8 +12,8 @@
         <h1>Password Generator</h1>
 
         <div>
-            <label for="amountChar">Amount of Characters:</label>
-            <input type="range" name="amountChar" id="amountChar" class="amountChar" min="6" max="50" value="6" step="1">
+            <label for="quantity-char">Quantity of Characters:</label>
+            <input type="number" name="quantity-char" id="quantity-char" class="quantity-char" min="6" max="50" value="6">
         </div>
 
         <div>
@@ -27,18 +27,18 @@
         </div>
 
         <div>
-            <label for="ucLetters">Uppercase Letters:</label>
-            <input type="checkbox" name="ucLetters" id="ucLetters" class="ucLetters" checked>
+            <label for="uppercase">Uppercase Letters:</label>
+            <input type="checkbox" name="uppercase" id="uppercase" class="uppercase" checked>
         </div>
 
         <div>
-            <label for="lcLetters">Lowercase Letters:</label>
-            <input type="checkbox" name="lcLetters" id="lcLetters" class="lcLetters" checked>
+            <label for="lowercase">Lowercase Letters:</label>
+            <input type="checkbox" name="lowercase" id="lowercase" class="lowercase" checked>
         </div>
 
         <input type="button" value="Generate" class="generate">
 
-        <span class="generatedPassword"></span>
+        <span class="result"> </span>
     </div>
 
     <script src="assets/js/bundle.js"></script>

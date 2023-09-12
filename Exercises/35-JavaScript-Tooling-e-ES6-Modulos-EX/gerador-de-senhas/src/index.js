@@ -1,15 +1,23 @@
 import './assets/css/style.css';
-import generatesPassword from './modules/generatesPassword.js';
+import generatePassword from './modules/passwordGenerator.js';
 
-const btnGenerate = document.querySelector('input.generate');
+const generateBtn = document.querySelector('input.generate');
 
-btnGenerate.addEventListener('click', () => {
-    const inputAmountChar = document.querySelector('input.amountChar');
-    const ckbNumbers = document.querySelector('input.numbers');
-    const ckbSymbols = document.querySelector('input.symbols');
-    const ckbUcLetters = document.querySelector('input.ucLetters');
-    const ckbLcLetters = document.querySelector('input.lcLetters');
-    const spanGP = document.querySelector('span.generatedPassword');
+generateBtn.addEventListener('click', () => {
+    const quantityCharInput = document.querySelector('input.quantity-char');
+    const numbersCheckbox = document.querySelector('input.numbers');
+    const symbolsCheckbox = document.querySelector('input.symbols');
+    const uppercaseCheckbox = document.querySelector('input.uppercase');
+    const lowercaseCheckbox = document.querySelector('input.lowercase');
+    const resultSpan = document.querySelector('span.result');
 
-    spanGP.innerHTML = generatesPassword(inputAmountChar.value, ckbNumbers.checked, ckbSymbols.checked, ckbUcLetters.checked, ckbLcLetters.checked);
+    const generatedPassword = generatePassword(
+        quantityCharInput.value, 
+        numbersCheckbox.checked, 
+        symbolsCheckbox.checked, 
+        uppercaseCheckbox.checked, 
+        lowercaseCheckbox.checked
+        );
+
+    resultSpan.innerHTML = generatedPassword;
 });

@@ -2,47 +2,45 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/modules/generatesPassword.js":
+/***/ "./src/modules/passwordGenerator.js":
 /*!******************************************!*\
-  !*** ./src/modules/generatesPassword.js ***!
+  !*** ./src/modules/passwordGenerator.js ***!
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ generatesPassword)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function random(min, max) {
+var random = function random(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
-}
-;
-var num = function num() {
+};
+var returnsRandomNumber = function returnsRandomNumber() {
   return String.fromCharCode(random(48, 57));
 };
-var mai = function mai() {
+var returnsRandomUppercaseLetter = function returnsRandomUppercaseLetter() {
   return String.fromCharCode(random(65, 90));
 };
-var min = function min() {
+var returnsRandomLowercaseLetter = function returnsRandomLowercaseLetter() {
   return String.fromCharCode(random(97, 122));
 };
-var sym = function sym() {
-  var symbols = ['@', '#', '!', '$', '%', '&'];
+var returnsRandomSymbol = function returnsRandomSymbol() {
+  var symbols = ['!', '@', '#', '$', '%', '&', '*', '(', ')', '-', '_', '=', '+', '.', ',', '?', ';'];
   return symbols[random(0, symbols.length)];
 };
-function generatesPassword(quant, numbers, symbols, ucLetters, lcLetters) {
-  var password = [];
-  for (var i = 0; i < Number(quant); i++) {
-    var geradores = [];
-    if (numbers) geradores.push(num());
-    if (symbols) geradores.push(sym());
-    if (ucLetters) geradores.push(mai());
-    if (lcLetters) geradores.push(min());
-    password.push(geradores[random(0, geradores.length)]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (quantity, numbers, symbols, uppercase, lowercase) {
+  var generatedPassword = [];
+  for (var i = 0; i < Number(quantity); i++) {
+    var generatedCharacters = [];
+    numbers && generatedCharacters.push(returnsRandomNumber());
+    symbols && generatedCharacters.push(returnsRandomSymbol());
+    uppercase && generatedCharacters.push(returnsRandomUppercaseLetter());
+    lowercase && generatedCharacters.push(returnsRandomLowercaseLetter());
+    generatedPassword.push(generatedCharacters[random(0, generatedCharacters.length)]);
   }
   ;
-  return password.join('');
-}
-;
+  return generatedPassword.join('') || 'Enter the quantity and select an option to generate the password!!';
+});
 
 /***/ }),
 
@@ -65,7 +63,39 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding-top: 10px;
+    background-color: rgb(0, 0, 11);
+}
+
+div.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input.generate {
+    display: block;
+    margin: 10px auto 20px auto;
+}
+
+span.result {
+    display: block;
+    text-align: center;
+}`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;IACtB,yCAAyC;AAC7C;;AAEA;IACI,iBAAiB;IACjB,+BAA+B;AACnC;;AAEA;IACI,gBAAgB;IAChB,cAAc;IACd,aAAa;IACb,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,2BAA2B;AAC/B;;AAEA;IACI,cAAc;IACd,kBAAkB;AACtB","sourcesContent":["* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\n\r\nbody {\r\n    padding-top: 10px;\r\n    background-color: rgb(0, 0, 11);\r\n}\r\n\r\ndiv.container {\r\n    max-width: 500px;\r\n    margin: 0 auto;\r\n    padding: 30px;\r\n    background-color: white;\r\n    border-radius: 10px;\r\n}\r\n\r\nh1 {\r\n    margin-bottom: 20px;\r\n}\r\n\r\ninput.generate {\r\n    display: block;\r\n    margin: 10px auto 20px auto;\r\n}\r\n\r\nspan.result {\r\n    display: block;\r\n    text-align: center;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -593,18 +623,19 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
-/* harmony import */ var _modules_generatesPassword_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/generatesPassword.js */ "./src/modules/generatesPassword.js");
+/* harmony import */ var _modules_passwordGenerator_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/passwordGenerator.js */ "./src/modules/passwordGenerator.js");
 
 
-var btnGenerate = document.querySelector('input.generate');
-btnGenerate.addEventListener('click', function () {
-  var inputAmountChar = document.querySelector('input.amountChar');
-  var ckbNumbers = document.querySelector('input.numbers');
-  var ckbSymbols = document.querySelector('input.symbols');
-  var ckbUcLetters = document.querySelector('input.ucLetters');
-  var ckbLcLetters = document.querySelector('input.lcLetters');
-  var spanGP = document.querySelector('span.generatedPassword');
-  spanGP.innerHTML = (0,_modules_generatesPassword_js__WEBPACK_IMPORTED_MODULE_1__["default"])(inputAmountChar.value, ckbNumbers.checked, ckbSymbols.checked, ckbUcLetters.checked, ckbLcLetters.checked);
+var generateBtn = document.querySelector('input.generate');
+generateBtn.addEventListener('click', function () {
+  var quantityCharInput = document.querySelector('input.quantity-char');
+  var numbersCheckbox = document.querySelector('input.numbers');
+  var symbolsCheckbox = document.querySelector('input.symbols');
+  var uppercaseCheckbox = document.querySelector('input.uppercase');
+  var lowercaseCheckbox = document.querySelector('input.lowercase');
+  var resultSpan = document.querySelector('span.result');
+  var generatedPassword = (0,_modules_passwordGenerator_js__WEBPACK_IMPORTED_MODULE_1__["default"])(quantityCharInput.value, numbersCheckbox.checked, symbolsCheckbox.checked, uppercaseCheckbox.checked, lowercaseCheckbox.checked);
+  resultSpan.innerHTML = generatedPassword;
 });
 })();
 
