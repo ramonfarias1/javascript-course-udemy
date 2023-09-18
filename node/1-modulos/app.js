@@ -69,3 +69,10 @@
 //? console.log(p1);
 
 // No exemplo acima foi importado somente a class "Pessoa" usando desestruturação;
+
+//* Exemplo 06:
+
+const multiplica = require('./modulo1.js');
+console.log(multiplica(2, 5));
+
+// No exemplo acima foi importado uma function que foi exportada como "default".

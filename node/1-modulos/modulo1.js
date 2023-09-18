@@ -62,13 +62,13 @@ class Pessoa {
 //* Exemplo 04:
 // Exportando usando a palavra-chave "this".
 
-this.nome = nome;
-this.sobrenome = sobrenome;
-this.falaNome = falaNome;
-this.Pessoa = Pessoa;
-this.qualquerCoisa = 'qualquer Coisa';
+//? this.nome = nome;
+//? this.sobrenome = sobrenome;
+//? this.falaNome = falaNome;
+//? this.Pessoa = Pessoa;
+//? this.qualquerCoisa = 'qualquer Coisa';
 
-console.log(exports);
+//? console.log(exports);
 
 //# exportando tudo de uma vez
 
@@ -95,3 +95,13 @@ exports = {
 };
 
 console.log(exports);
+
+//# Export Default com módulos do Node.js
+
+module.exports = function(x, y) { // Vai exportar diretamente e unicamente a function
+    return x * y;
+};
+
+console.log(module.exports);
+
+// Normalmente o valor da chave "exports" é um object que recebe o que a gente quer exportar como chaves dentro do mesmo. Mas, no exemplo acima, o valor da chave "exports" foi substituído por uma function. Então quando formos importar este módulo, o que vai ser importado sempre será está function, pois ela está como se fosse o "default" dos módulos do javascript.
