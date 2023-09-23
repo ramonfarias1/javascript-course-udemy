@@ -1,0 +1,43 @@
+//# EXPRESS
+//# -------
+
+// Express é o framework Node mais popular e a biblioteca subjacente para uma série de outros frameworks do Node. Ele facilita o desenvolvimento de aplicações back-end e até, em conjunto com sistemas de templates, aplicações full-stack.
+
+/* O Express oferece soluções para:
+    - Gerenciar requisições de diferentes verbos HTTP em diferentes URLs.
+    - Integrar "view engines" para inserir dados nos templates.
+    - Definir as configurações comuns da aplicação web, como a porta a ser usada para conexão e a localização dos modelos que são usados para renderizar a resposta.
+    - Adicionar novos processos de requisição por meio de "middleware" em qualquer ponto da "fila" de requisições.
+*/
+
+const express = require('express');
+const app = express();
+
+// Operações mais comuns de uma API:
+//         Criar,  Ler,  Atualizar, Apagar
+// CRUD -> Create, Read, Update,    Delete
+//         POST,   GET,  PUT,       DELETE
+
+// Rotas da API:
+// https://meusite.com/ <-- GET = entregue a página(rota)
+// https://meusite.com/contatos <-- GET = entregue a página(rota)/contatos
+// https://meusite.com/contatos <-- GET = entregue a página(rota)/sobre
+
+app.get('/', (req, res) => {
+    // req = requisição do usuário
+    // res = resposta do servidor
+    res.send('<form method="post"> <input type="text" name="test"> </form>');
+});
+
+app.post('/', (req, res) => {
+    res.send('Formulário Enviado!');
+});
+
+app.get('/contatos', (req, res) => {
+    res.send('(45)4002-8922');
+});
+
+app.listen(3000, () => { // o express vai "ouvir" a porta 3000
+    console.log('Servidor executando na porta 3000');
+    console.log('link: http://localhost:3000');
+});
