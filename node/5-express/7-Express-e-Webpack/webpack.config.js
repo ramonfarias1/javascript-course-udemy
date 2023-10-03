@@ -3,10 +3,10 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
-    entry: './src/index.js',
+    entry: './frontend/main.js',
     output: {
-        path: path.resolve(__dirname, 'public', 'assets', 'js'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'public', 'assets', 'js')
     },
     module: {
         rules: [{
@@ -18,9 +18,10 @@ module.exports = {
                     presets: ['@babel/env']
                 }
             }
-        }, {
-            test: /\.css$/i,
+        },
+        {
+            test: /\.css$/,
             use: ['style-loader', 'css-loader']
         }]
     }
-}
+};
