@@ -1,4 +1,4 @@
-const HomePageModel = require('../models/HomePageModel');
+const HomePageModel = require('../models/HomePageModel'); // Importando Model
 
 HomePageModel.find()
     .then(dados => console.log(dados))

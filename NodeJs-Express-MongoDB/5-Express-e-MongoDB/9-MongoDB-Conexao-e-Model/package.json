@@ -1,5 +1,5 @@
 {
-  "name": "1-conexao-e-model",
+  "name": "9-mongodb-conexao-e-model",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
