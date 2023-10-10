@@ -1,5 +1,5 @@
 {
-  "name": "10-express-session-e-flash-messages",
+  "name": "10-express-session-connect-mongo-connect-flash",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
