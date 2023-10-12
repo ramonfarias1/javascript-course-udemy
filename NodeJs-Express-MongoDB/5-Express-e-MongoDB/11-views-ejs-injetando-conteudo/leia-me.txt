@@ -1,0 +1,19 @@
+### TAGS ###
+
+1.  <% código JavaScript %>
+    - Esta tag é usada para incorporar código JavaScript no template. O código dentro dessas    tags não produz saída diretamente no documento HTML. É usado principalmente para lógica de controle, loops, condicionais, etc.
+
+2.  <%= expressão JavaScript %>
+    - Esta tag é usada para inserir o resultado de uma expressão JavaScript no documento HTML. A expressão é avaliada e seu resultado é incluído na saída HTML. É útil para injetar dados dinâmicos no modelo.
+
+3.  <%- valor %>
+    - Essa tag é semelhante à tag <%=, com uma única diferença, está, realiza uma operação chamada de "escapamento HTML". Isso significa que se o valor tiver qualquer conteúdo que possa ser interpretado como HTML, o mesmo é convertido em entidades HTML seguras, a fim de evitar injeção de código malicioso no seu aplicativo.
+
+4.  <%# comentário %>
+    - Esta tag é usada para adicionar comentários no modelo EJS. Comentários não são incluídos na saída HTML final. Eles são úteis para documentar o código ou fazer anotações para outros desenvolvedores.
+
+5.  <%_ código JavaScript _%>
+    - Essas tags de script "whitespace trim" removem qualquer espaço em branco ao redor do código JavaScript dentro delas. Isso é útil para evitar espaços em branco indesejados na saída.
+
+6.  <%%
+    - Serve pra escrever literalmente os 

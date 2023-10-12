@@ -208,8 +208,9 @@ const sessionOptions = session({ // configuração express-session
     }
 });
 
-app.use(sessionOptions);
-app.use(connectFlash());
+app.use(sessionOptions); // usando express-session, veja o arquivo homePageController.js na pasta src/controllers para um exemplo de session
+
+app.use(connectFlash()); // usando flash messages, veja o arquivo homePageController.js na pasta src/controllers para ver exemplos de flash messages
 
 app.use(routes);
 

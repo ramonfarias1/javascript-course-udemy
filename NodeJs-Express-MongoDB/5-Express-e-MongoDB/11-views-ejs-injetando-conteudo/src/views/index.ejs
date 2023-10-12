@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= titulo %>
+    </title>
+</head>
+
+<body>
+    <div><%= lorem %></div>
+    <div><%- lorem %></div>
+    <div>
+        <% numeros.forEach( valor=> { %>
+            <%# comentário em EJS %>
+            <%= valor %>
+        <% }) %>
+    </div>
+    <div><%%</div>
+    <script src="./assets/js/bundle.js"></script>
+</body>
+
+</html>
