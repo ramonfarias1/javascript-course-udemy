@@ -10,15 +10,38 @@
 </head>
 
 <body>
-    <div><%= lorem %></div>
-    <div><%- lorem %></div>
     <div>
-        <% numeros.forEach( valor=> { %>
+        <%= lorem %>
+    </div>
+
+    <div>
+        <%- lorem %>
+    </div>
+
+    <div>
+        <% numeros.forEach( valor => { %>
             <%# comentário em EJS %>
             <%= valor %>
         <% }) %>
-    </div>
-    <div><%%</div>
+    </div> <br>
+    <div>
+        <%%
+    </div> <br>
+
+    <form action="" method="post">
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome"> <br>
+
+        <label for="idade">Idade: </label>
+        <input type="number" name="idade" id="idade"> <br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <% if (userName) { %>
+        <%= userName %>
+    <% }; %>
+
     <script src="./assets/js/bundle.js"></script>
 </body>
 

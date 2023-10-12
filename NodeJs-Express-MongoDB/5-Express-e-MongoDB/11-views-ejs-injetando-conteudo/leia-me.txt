@@ -1,4 +1,26 @@
-### TAGS ###
+############################################
+##                                        ##
+##  EJS (Embedded JavaScript templating)  ##
+##                                        ##
+############################################
+
+##################################
+##  O que é? e Para que serve?  ##
+##################################
+
+EJS é uma linguagem de template que permite incorporar código JavaScript diretamente em documentos HTML. Ele fornece uma maneira de gerar conteúdo dinamicamente no lado do servidor e renderizá-lo no lado do cliente. EJS é uma alternativa popular ao uso de HTML estático puro, permitindo que você insira dados dinâmicos em suas páginas da web.
+
+EJS é usado principalmente para criar páginas da web dinâmicas. Ele permite que você injete dados e lógica JavaScript em modelos HTML, tornando possível criar páginas que se ajustam com base nas informações do servidor ou na interação do usuário. Aqui estão alguns casos de uso comuns para EJS:
+
+1.  Renderização de Páginas Web Dinâmicas: EJS é frequentemente usado em aplicativos web para renderizar páginas que exibem dados diferentes com base em solicitações do usuário ou informações do banco de dados.
+
+2.  Templates Reutilizáveis: EJS permite criar templates HTML reutilizáveis que podem ser preenchidos com dados diferentes em várias partes de um site.
+
+3.  Geração de Emails Dinâmicos: EJS pode ser usado para gerar conteúdo dinâmico em e-mails, permitindo que você personalize mensagens para os destinatários.
+
+###################
+##  Tags do EJS  ##
+###################
 
 1.  <% código JavaScript %>
     - Esta tag é usada para incorporar código JavaScript no template. O código dentro dessas    tags não produz saída diretamente no documento HTML. É usado principalmente para lógica de controle, loops, condicionais, etc.
@@ -13,7 +35,13 @@
     - Esta tag é usada para adicionar comentários no modelo EJS. Comentários não são incluídos na saída HTML final. Eles são úteis para documentar o código ou fazer anotações para outros desenvolvedores.
 
 5.  <%_ código JavaScript _%>
-    - Essas tags de script "whitespace trim" removem qualquer espaço em branco ao redor do código JavaScript dentro delas. Isso é útil para evitar espaços em branco indesejados na saída.
+    - Essas tags de script "whitespace trim" removem qualquer espaço em branco ao redor do código JavaScript dentro delas. Isso é útil para evitar espaços em branco indesejados na saída. Se o underline_ for usado apenas na primeira porcentagem%, removerá apenas o espaço em branco que está antes do código, e, se usado apenas na última porcentagem%, removerá apenas o espaço em branco que está após o código.
 
-6.  <%%
-    - Serve pra escrever literalmente os 
+6.  <% código JavaScript -%>
+    - Essa tag é uma variação da tag de scriptlet que permite suprimir a quebra de linha após o bloco de código JavaScript. A inclusão do hífen antes do %> remove a quebra de linha gerada automaticamente após o bloco de código. Isso é útil quando você deseja controlar a formatação do seu HTML para evitar espaços em branco indesejados.
+
+7.  <%%
+    - Às vezes, você pode querer incluir o caractere '<%' literal no seu template, e para fazer isso, você pode usar <%% para escapar e renderizar um '<%'.
+
+8.  <%- include('./header.ejs') %>
+    - Essa tag é usada para incluir conteúdo de outros arquivos EJS no modelo atual. É útil para reutilizar partes de código em vários lugares.
