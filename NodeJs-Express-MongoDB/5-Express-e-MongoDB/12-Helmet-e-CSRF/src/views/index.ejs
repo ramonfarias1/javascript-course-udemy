@@ -1,0 +1,44 @@
+<%- include('./includes/head') %>
+
+<div>
+    <%= lorem %>
+</div>
+
+<div>
+    <%- lorem %>
+</div>
+
+<div>
+    <% numeros.forEach( valor => { %>
+        <%# comentário em EJS %>
+        <%= valor %>
+    <% }); %>
+</div>
+
+<div>
+    <%%
+</div>
+
+<form action="" method="post">
+    <div>
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome">
+    </div>
+
+    <div>
+        <label for="idade">Idade: </label>
+        <input type="number" name="idade" id="idade">
+    </div>
+
+    <div><input type="submit" value="Enviar"></div>
+</form>
+
+<% if (typeof nome !== 'undefined' && nome) { %>
+    <div> <%= nome %> </div>
+<% }; %>
+
+<% if (typeof idade !== 'undefined' && idade) { %>
+    <div> <%= idade %> </div>
+<% }; %>
+
+<%- include('./includes/footer.ejs') %>
