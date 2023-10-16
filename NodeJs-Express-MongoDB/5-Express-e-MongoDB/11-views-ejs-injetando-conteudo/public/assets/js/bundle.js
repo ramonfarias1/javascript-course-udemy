@@ -21308,7 +21308,18 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
     font-size: 1.1em;
     font-family: Arial, Helvetica, sans-serif;
-}`, "",{"version":3,"sources":["webpack://./frontend/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,gBAAgB;IAChB,yCAAyC;AAC7C","sourcesContent":["* {\r\n    font-size: 1.1em;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}"],"sourceRoot":""}]);
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+body {
+    padding: 15px;
+}
+
+div, input {
+    margin-bottom: 16px;
+}`, "",{"version":3,"sources":["webpack://./frontend/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,gBAAgB;IAChB,yCAAyC;IACzC,UAAU;IACV,SAAS;IACT,cAAc;AAClB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;AACvB","sourcesContent":["* {\r\n    font-size: 1.1em;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    padding: 0;\r\n    margin: 0;\r\n    line-height: 1;\r\n}\r\n\r\nbody {\r\n    padding: 15px;\r\n}\r\n\r\ndiv, input {\r\n    margin-bottom: 16px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

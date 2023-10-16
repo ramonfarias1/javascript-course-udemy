@@ -43,5 +43,5 @@ EJS é usado principalmente para criar páginas da web dinâmicas. Ele permite q
 7.  <%%
     - Às vezes, você pode querer incluir o caractere '<%' literal no seu template, e para fazer isso, você pode usar <%% para escapar e renderizar um '<%'.
 
-8.  <%- include('./header.ejs') %>
+8.  <%- include('./includes/head.ejs') %>
     - Essa tag é usada para incluir conteúdo de outros arquivos EJS no modelo atual. É útil para reutilizar partes de código em vários lugares.

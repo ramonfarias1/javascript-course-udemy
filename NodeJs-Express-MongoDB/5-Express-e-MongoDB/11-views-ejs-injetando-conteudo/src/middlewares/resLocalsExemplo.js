@@ -9,9 +9,10 @@ Por exemplo, você pode usar res.locals para armazenar informações que devem s
 //# Confira o Exemplo abaixo:
 
 module.exports = (req, res, next) => {
+    // res.locals.user = {...req.body}
     res.locals.user = {
-        nome: 'carlos',
-        idade: 25
+        nome: req.body.nome,
+        idade: req.body.idade
     };
     
     next();
@@ -19,4 +20,4 @@ module.exports = (req, res, next) => {
 
 // Neste exemplo, o middleware define um object "user" em res.locals, e a rota "/" acessa essa informação para responder com os detalhes do usuário. Isso é útil quando você precisa compartilhar dados entre middleware e rotas sem precisar passá-los manualmente como parâmetros ou variáveis globais.
 
-//# Veja os arquivos "routes.js" e "homePageController.js" para mais detalhes.
+//# Veja os arquivos: "routes.js" e "homePageController.js", para mais detalhes.
