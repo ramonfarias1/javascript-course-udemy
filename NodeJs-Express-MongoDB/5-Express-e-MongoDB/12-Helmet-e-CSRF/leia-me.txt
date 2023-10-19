@@ -1,0 +1,33 @@
+ ###################
+#                   #
+#  HELMET.JS E CSRF #
+#                   #
+ ###################
+
+ ##########
+# HelmetJS #
+ ##########
+
+Helmet.js é uma biblioteca JavaScript que foi projetada para ajudar a melhorar a segurança de aplicativos web Node.js e Express.js. Ela é usada para mitigar várias vulnerabilidades de segurança comuns, fornecendo uma série de middlewares que configuram cabeçalhos HTTP apropriados e implementam práticas recomendadas de segurança. Helmet.js é particularmente útil para proteger seu aplicativo contra ataques comuns, como injeção de código, ataques de cross-site scripting (XSS), injeção de cabeçalho HTTP, ataques de clickjacking e outros.
+
+Aqui estão os principais recursos do Helmet.js:
+
+1 - Content Security Policy (CSP): Helmet.js ajuda a configurar um header Content Security Policy, que controla de quais fontes o navegador deve carregar recursos como scripts, imagens, estilos, etc. Isso ajuda a mitigar ataques de injeção de código e XSS.
+
+2 - X-Content-Type-Options: Ele configura o cabeçalho X-Content-Type-Options para impedir que os navegadores adivinhem o tipo MIME de um arquivo, reduzindo o risco de ataques baseados na adulteração do tipo MIME.
+
+3 - X-Frame-Options: Define o cabeçalho X-Frame-Options para controlar se o conteúdo do seu aplicativo pode ser exibido em um iframe. Isso ajuda a prevenir ataques de clickjacking.
+
+4 - X-XSS-Protection: Configura o cabeçalho X-XSS-Protection para ativar o filtro XSS integrado do navegador, protegendo contra ataques de cross-site scripting.
+
+5 - Strict-Transport-Security: Ajuda a forçar a comunicação segura (HTTPS) entre o cliente e o servidor, ajudando a prevenir ataques de interceptação de tráfego.
+
+6 - Referrer-Policy: Define o cabeçalho Referrer-Policy para controlar como os navegadores enviam informações de referenciadores a outros sites.
+
+Veja o arquivo "server.js" para ver como se usa e configura o Helmet.JS
+
+###################################
+# Cross-Site Request Forgery(CSRF) #
+ ##################################
+
+NÃO USE MAIS CSURF, ATUALMENTE É USADO "SPA" NO LUGAR DO CSURF
